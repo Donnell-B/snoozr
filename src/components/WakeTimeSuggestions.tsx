@@ -13,7 +13,7 @@ const WakeTimeSuggestions: FunctionComponent<WakeTimeSuggestionsProps> = () => {
     cycles[index] = cycle * index;
   }
   return (
-    <div className="flex flex-col items-center justify-center py-2 gap-2 text-white">
+    <div className="flex flex-col py-2 gap-2 text-white justify-around min-h-fit grow h-full">
       <p className="suggestions_font pb-2">
         If I sleep now I should wake up at...
       </p>
@@ -23,7 +23,10 @@ const WakeTimeSuggestions: FunctionComponent<WakeTimeSuggestionsProps> = () => {
             return (
               <li
                 key={index}
-                className="inline-block px-1"
+                className={
+                  "inline-block px-1" +
+                  (index >= 5 ? " underline underline-offset-1" : "")
+                }
                 title={index + (index === 1 ? " Cycle" : " Cycles")}>
                 {moment()
                   .add(14, "minutes")
@@ -34,6 +37,7 @@ const WakeTimeSuggestions: FunctionComponent<WakeTimeSuggestionsProps> = () => {
             );
           })}
         </ul>
+        <p className="pt-2">You should aim for 5-6 cycles</p>
       </p>
       {/* <br /> */}
       <p className="questionText pt-2">How is this calculated?</p>

@@ -2,33 +2,46 @@ import React from "react";
 import "./App.css";
 import { Background } from "./components/BackgroundParticles";
 import { NavBar } from "./components/NavBar";
-import { SetAlternativeTimeSection } from "./components/SetAlternativeTimeSection";
-import WakeTimeSuggestions from "./components/WakeTimeSuggestions";
+import { HomePage } from "./pages/HomePage";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Settings from "./pages/Settings";
+
+function NotFound() {
+  return (
+    <>
+      <div className="w-full h-full flex flex-col justify-center gap-24">
+        <p className="text-white grow-0 shrink font-RedHat">
+          <span className="text-[9vh] underline underline-offset-1">
+            404 - Not Found!
+          </span>
+        </p>
+        <p className="alt_text">What you were looking for wasn't found!</p>
+      </div>
+    </>
+  );
+}
 
 function App() {
   return (
-    <>
+    <Router>
       <Background />
       <div className="App contrast-100">
         <NavBar />
-        <p className="text-white grow-0 shrink font-RedHat">
-          <span className="text-[9vh] underline underline-offset-1">
-            Snoozr
-          </span>
-        </p>
-        <div className="text-black h-full shrink min-w-[320px] w-[80vw] m-0 ">
-          <div className="grid grid-cols-1 h-full grow shrink content-evenly justify-items-center">
-            <WakeTimeSuggestions />
-            <div className="h-full align-bottom self-end">
-              <p className="alt_title_text self-end">OR...</p>
-            </div>
-
-            <SetAlternativeTimeSection />
-          </div>
-        </div>
-        {/* <div></div> */}
+        {/* Switch goes here */}
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<About />} />
+          {/* <Route path="/FAQ" element={<FAQ />} /> */}
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/settings" element={<Settings />} />
+          {/* <Route path="/sleep" element={<CalculatedSleepTime />} /> */}
+          {/* <Route path="/wake" element={<CalculatedWakeTime />} /> */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </div>
-    </>
+    </Router>
   );
 }
 
