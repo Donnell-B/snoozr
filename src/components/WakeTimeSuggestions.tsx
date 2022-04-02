@@ -1,6 +1,8 @@
 import moment from "moment";
 import * as React from "react";
 import { FunctionComponent } from "react";
+import getLocalStorageItem from "../utils/getLocalStorageItem";
+import Modal from "./Modal";
 
 interface WakeTimeSuggestionsProps {}
 
@@ -9,38 +11,54 @@ const WakeTimeSuggestions: FunctionComponent<WakeTimeSuggestionsProps> = () => {
   const numOfCycles = 6;
   const cycles: number[] = [];
 
+  const twelveHourTime = getLocalStorageItem(
+    "TwelveHourClock",
+    false,
+    (x: string) => x === "true" || false
+  );
+  const fallAsleepTime = getLocalStorageItem(
+    "fallAsleepTime",
+    14,
+    (x: string) => parseInt(x)
+  );
+  const timeFormat = twelveHourTime ? "hh:mm A" : "HH:mm A";
+
   for (let index = 1; index < numOfCycles + 1; index++) {
     cycles[index] = cycle * index;
   }
   return (
-    <div className="flex flex-col py-2 gap-2 text-white justify-around min-h-fit grow h-full">
+    <div className="flex flex-col text-white justify-around min-h-fit grow h-full">
       <p className="suggestions_font pb-2">
         If I sleep now I should wake up at...
       </p>
-      <p className="desc_text">
-        <ul className="list-none bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-sky-800 text-2xl md:text-3xl">
+      <span className="desc_text">
+        <ul className="font-medium list-none bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-sky-400 to-blue-800 text-2xl md:text-3xl">
           {cycles.map((element, index) => {
             return (
               <li
                 key={index}
                 className={
-                  "inline-block px-1" +
-                  (index >= 5 ? " underline underline-offset-1" : "")
+                  "inline-block px-1" + (index >= 5 ? " font-extrabold" : "")
                 }
                 title={index + (index === 1 ? " Cycle" : " Cycles")}>
                 {moment()
-                  .add(14, "minutes")
+                  .add(fallAsleepTime, "minutes")
                   .add(element, "hours")
-                  .format("HH:mm A")}
+                  .format(timeFormat)}
                 {index !== cycles.length - 1 && ","}
               </li>
             );
           })}
         </ul>
-        <p className="pt-2">You should aim for 5-6 cycles</p>
-      </p>
+      </span>
+      <p className=" desc_text">You should aim for 5-6 cycles</p>
       {/* <br /> */}
-      <p className="questionText pt-2">How is this calculated?</p>
+      <span className="questionText pt-2">
+        <Modal
+          text={"How is this calculated?"}
+          bodyText="Bullshit goes here!"
+        />
+      </span>
     </div>
   );
 };

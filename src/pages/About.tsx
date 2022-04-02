@@ -38,34 +38,6 @@ const About: FunctionComponent<AboutProps> = () => {
             dictum euismod metus, at tincidunt erat tincidunt interdum. Morbi
             vel orci et dui volutpat vestibulum. Mauris at suscipit metus.
           </p>
-          <p>
-            Etiam sollicitudin magna ut fermentum efficitur. Aenean iaculis,
-            orci non rutrum ultricies, orci nibh porttitor elit, id viverra urna
-            lectus id neque. Cras porta, tellus at lobortis facilisis, ante
-            lectus consectetur massa, sit amet convallis mi urna in neque. Duis
-            pharetra enim eu leo tincidunt, sed aliquam purus pharetra.
-            Pellentesque habitant morbi tristique senectus et netus et malesuada
-            fames ac turpis egestas. Phasellus ullamcorper sodales erat, sit
-            amet vestibulum lorem sagittis eu. Mauris lobortis suscipit
-            venenatis. Vivamus ac urna lobortis, euismod purus at, cursus
-            tellus. Aenean id ligula rhoncus, pharetra velit blandit, pretium
-            magna. Integer hendrerit dui at ante imperdiet, nec consequat massa
-            faucibus. Phasellus in bibendum ligula. Proin pharetra commodo augue
-            quis congue. Sed id tristique odio.
-          </p>
-          <p>
-            Phasellus vitae feugiat lorem. Vestibulum vitae feugiat sapien,
-            imperdiet blandit mi. Vivamus ac ante leo. Ut porta, dui ut congue
-            sollicitudin, orci justo cursus libero, et vulputate dolor lacus eu
-            odio. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-            pulvinar, odio vel rhoncus posuere, nibh augue eleifend ipsum,
-            eleifend luctus nisi odio scelerisque velit. Cras id auctor lorem.
-            Donec eu elit nibh. In nec fringilla eros, non venenatis lacus.
-            Pellentesque ut tellus gravida arcu pellentesque commodo. Vestibulum
-            et metus magna. Aenean lacinia tortor ac malesuada facilisis. Cras
-            suscipit posuere nisl ut feugiat. Duis nunc nunc, euismod ut velit
-            non, maximus pulvinar turpis.
-          </p>
         </div>
       </div>
     </>

@@ -44,6 +44,14 @@ html {
   @apply md:text-2xl;
 }
 
+.contact_desc_text {
+  @apply font-RedHat;
+  @apply font-bold;
+  @apply text-white;
+  @apply text-base;
+  @apply md:text-xl;
+}
+
 .navbar {
   @apply w-screen;
   @apply h-fit;
@@ -109,4 +117,7 @@ input:checked ~ .dot {
 }
 .settings-indicator-off {
   @apply text-gray-300;
+}
+form-input-styles:invalid {
+  @apply border-2 border-dashed border-red-500;
 }

@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Snoozr",
+  "name": "Snoozr - Optimise your sleep times!",
+  "description": "Calculate the best time to fall asleep or wake-up so you feel less sleepy!",
   "icons": [
     {
       "src": "favicon.ico",
@@ -19,7 +20,8 @@
     }
   ],
   "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "display": "fullscreen",
+  "theme_color": "#111827",
+  "background_color": "#111827",
+  "orientation": "portrait"
 }
