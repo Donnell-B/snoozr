@@ -40,6 +40,9 @@ const Contact: React.FunctionComponent<ContactProps> = () => {
   const [showSuccessMsg, setShowSuccessMsg] = useState(false);
   const [showErrorMsg, setShowErrorMsg] = useState(false);
 
+  const [userOffline, setUserOffline] = useState(false);
+  const [formDisabled, setFormDisabled] = useState(false);
+
   const [pageClip, setPageClip] = useState<any>(null);
 
   function updateTopicState(e: ChangeEvent<HTMLSelectElement>) {
@@ -91,6 +94,13 @@ const Contact: React.FunctionComponent<ContactProps> = () => {
   }
 
   useEffect(() => {
+    var online = navigator.onLine;
+    if (!online) {
+      //do some shit
+      setUserOffline(true);
+      setFormDisabled(true);
+      return;
+    }
     const script = document.createElement("script");
     script.src = "https://s.pageclip.co/v1/pageclip.js";
     script.async = true;
@@ -109,10 +119,19 @@ const Contact: React.FunctionComponent<ContactProps> = () => {
       <p className="text-white grow-0 shrink font-RedHat">
         <span className="text-[9vh] underline underline-offset-1">Contact</span>
       </p>
+
+      {userOffline && (
+        <div className="bg-red-600 border-2 border-white min-w-[320px] w-[40vw] h-max">
+          <p className="contact_desc_text">
+            You are offline! This form won't work until you're back online.
+          </p>
+        </div>
+      )}
       <div className="bg-gray-600 bg-opacity-40 border-2 border-white min-w-[320px] w-[40vw] h-max">
         <p className="contact_desc_text">
-          I you would like to contact me regarding this app to provide feedback,
-          report a bug, or to just say hi please do with the form below!
+          If you would like to contact me regarding this app to provide
+          feedback, report a bug, or to just say hi please do with the form
+          below!
         </p>
       </div>
       <div className="flex flex-col w-full items-center mb-12">
@@ -126,7 +145,8 @@ const Contact: React.FunctionComponent<ContactProps> = () => {
                 name="cars"
                 className="form-input-styles w-full h-max"
                 onChange={(e) => updateTopicState(e)}
-                value={topic}>
+                value={topic}
+                disabled={formDisabled}>
                 <option value="feedback">Feedback</option>
                 <option value="bugReport">Bug Report</option>
                 <option value="other">Other</option>
@@ -142,6 +162,7 @@ const Contact: React.FunctionComponent<ContactProps> = () => {
                 value={email}
                 onChange={(e) => updateEmailState(e)}
                 required
+                disabled={formDisabled}
               />
             </div>
             <div className="flex flex-col grow shrink text-left">
@@ -150,6 +171,7 @@ const Contact: React.FunctionComponent<ContactProps> = () => {
                 className="form-input-styles grow min-h-[19vh] p-1"
                 value={message}
                 onChange={(e) => updateMessageState(e)}
+                disabled={formDisabled}
                 required
               />
             </div>

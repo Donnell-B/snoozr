@@ -51,12 +51,17 @@ const WakeTimeSuggestions: FunctionComponent<WakeTimeSuggestionsProps> = () => {
           })}
         </ul>
       </span>
-      <p className=" desc_text">You should aim for 5-6 cycles</p>
+      <p className=" desc_text">
+        You should aim for 5-6 cycles for a good night's sleep.
+      </p>
       {/* <br /> */}
       <span className="questionText pt-2">
         <Modal
           text={"How is this calculated?"}
-          bodyText="Bullshit goes here!"
+          bodyText="Snoozr works by calculating the time at the end of each sleep cycle. 
+          Sleep cycles are typically an hour and a half long and waking up at the end of one will leave you feeling less groggy. 
+          Snoozr takes the time you plan on sleeping (or waking up) along with the time it usually takes a person to fall asleep 
+          (14 minutes, but you can change this in the settings!) and calculates the best time to sleep or wake up based on when you would be finishing a sleep cycle!"
         />
       </span>
     </div>

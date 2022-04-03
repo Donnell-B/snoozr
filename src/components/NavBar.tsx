@@ -46,7 +46,9 @@ export function NavBar(props: any) {
       <div className="col-span-2 block" key="navBarOne">
         <OriginalNavBar />
       </div>
-      <div className="w-full flex justify-end items-center" key="navBarTwo">
+      <div
+        className="w-full flex justify-end items-center pr-1"
+        key="navBarTwo">
         <button
           onClick={() => {
             path !== "/settings"

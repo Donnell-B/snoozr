@@ -1,4 +1,5 @@
 import { FunctionComponent } from "react";
+import { Link } from "react-router-dom";
 
 interface AboutProps {}
 
@@ -9,34 +10,29 @@ const About: FunctionComponent<AboutProps> = () => {
         <p className="text-white grow-0 shrink font-RedHat">
           <span className="text-[9vh] underline underline-offset-1">About</span>
         </p>
-        <div className="flex flex-col grow h-full shrink min-w-[320px] w-[80vw] text-white font-OpenSans border-2 border-white gap-5 p-4 bg-gray-600 bg-opacity-40">
+        <div className="flex flex-col grow h-full shrink min-w-[320px] w-[70vw] text-white font-OpenSans border-2 border-white gap-5 p-4 bg-gray-600 bg-opacity-40">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-            scelerisque, quam ac congue condimentum, ipsum massa ornare massa,
-            vitae elementum nulla orci non massa. Vestibulum ante ipsum primis
-            in faucibus orci luctus et ultrices posuere cubilia curae; Donec in
-            justo venenatis nulla dignissim feugiat quis in turpis. Sed lacus
-            augue, luctus tempus congue vel, pellentesque quis erat. Cras vel
-            elementum nunc, ac elementum augue. Proin vel ornare purus. Nulla a
-            turpis ac diam auctor dignissim interdum eget risus. Morbi luctus
-            sapien bibendum euismod convallis. Proin magna velit, scelerisque
-            sit amet dui sed, fringilla pellentesque nunc. Pellentesque in lacus
-            odio. Maecenas scelerisque ligula sed commodo porttitor. Praesent id
-            tortor ut nisl blandit suscipit ac vitae nisl. Suspendisse pharetra
-            nisi in eleifend dapibus. Pellentesque sed eros vehicula,
-            consectetur augue at, sodales lectus. Morbi dapibus, ipsum eu tempus
-            lacinia, lectus lectus posuere erat, at tristique nulla libero sit
-            amet eros. Nam pretium diam nec luctus feugiat.
+            A few years ago I found out about sleep cycles & how waking up at
+            the right time can have you feeling less tired and groggy.
+            Calculating and planning the best times to fall asleep & wake up can
+            have a big effect on how you feel. I've used other calculators to
+            figure out times but they were't as user-friendly or useful so I
+            though I'd make my own!
           </p>
           <p>
-            Nunc tristique cursus feugiat. Ut ut neque vitae ligula semper
-            vulputate id venenatis quam. Aenean quis augue lectus. Donec non
-            purus nunc. Sed porttitor vitae lorem eu maximus. Curabitur sit amet
-            erat velit. Vivamus id magna vehicula tortor faucibus tempus
-            consectetur in est. Donec venenatis sapien sed sem bibendum
-            fermentum. Ut vulputate orci et tristique placerat. Vestibulum
-            dictum euismod metus, at tincidunt erat tincidunt interdum. Morbi
-            vel orci et dui volutpat vestibulum. Mauris at suscipit metus.
+            I wanted to make sure this websitew was mobile friendly & available
+            offline, which it is! So feel free to install it. I've also added
+            some basic options that you can change and may expand on this in the
+            future.
+          </p>
+          <p>
+            This website was a small project I put together to test my skills in
+            JavaScript & React. I may work to improve & expand it and add more
+            features in the future. Reporting feedback & any bug reports would
+            greatly be appreciated! You can do so via the{" "}
+            <Link to="/contact" className="underline text-cyan-600">
+              Contact Page.
+            </Link>
           </p>
         </div>
       </div>
