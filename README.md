@@ -17,6 +17,12 @@ It also has a "service worker" meaning and can be added as an "app" on mobile de
 
 ### Todos
 
-I have a few things I'd like to still do
+I have a few things I'd like to still do:
 
 - Migrate to Vite. This project was built when CRA was still in use. Nowadays Vite has replaced it. I'd like to update the project to use that, as well as update dependancies.
+
+- Implement linting. I think some linting is done, but I'd like to ensure work is linted to a high standard.
+
+- Implement testing. No testing is being done, this should change incase I break things when updating.
+
+- Implement a pipeline. Manually deploying stuff is so 2010
